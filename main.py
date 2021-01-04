@@ -16,39 +16,99 @@ inputLogin.send_keys('igor')
 inputSenha = navegador.find_element_by_id('txt_senha')
 inputSenha.send_keys('abc123')
 
+#clicando em enter
 enter = navegador.find_element_by_id('btn_entrar')
 enter.click()
 
+
+
+
 def clientes():
-    botao = driver.execute_script("document.getElementsByTagName('a')[0].click()")
+    navegador.execute_script("document.getElementsByTagName('a')[0].click()")
+
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
+    inputBusca.send_keys('igorr')
+
+    enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
+    enter.click()
+
+    pessoa = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_cliente_ctl02_lbl_nome')
+    pessoa.click()
 
 def arquitetos():
-    botao = navegador.execute_script("document.getElementsByTagName('a')[1].click()")
+    navegador.execute_script("document.getElementsByTagName('a')[1].click()")
 
 def produtos():
-    botao = navegador.execute_script("document.getElementsByTagName('a')[2].click()")
+    navegador.execute_script("document.getElementsByTagName('a')[2].click()")
 
 def fornecedores():
     botao = navegador.execute_script("document.getElementsByTagName('a')[3].click()")
 
+def orcamentos():
+    botao = navegador.execute_script("document.getElementsByTagName('a')[4].click()")
+
+def pedidos():
+    botao = navegador.execute_script("document.getElementsByTagName('a')[5].click()")
+
+def emissaoOc():
+    botao = navegador.execute_script("document.getElementsByTagName('a')[6].click()")
+
+def recebimetoOc():
+    botao = navegador.execute_script("document.getElementsByTagName('a')[7].click()")
+
+def representantes():
+    botao = navegador.execute_script("document.getElementsByTagName('a')[8].click()")
+
+def assistencia():
+    botao = navegador.execute_script("document.getElementsByTagName('a')[9].click()")
+
+def estoque():
+    botao = navegador.execute_script("document.getElementsByTagName('a')[10].click()")
+
+def entrega():
+    botao = navegador.execute_script("document.getElementsByTagName('a')[11].click()")
+
+####################################
+def inicio():
+    sleep(2)
+    inicio = navegador.find_element_by_id('ctl00_Topo1_btn_inicio').click()
+    sleep(2)
+####################################
+
 sleep(2)
 
 clientes()
-sleep(2)
-inicio = navegador.find_element_by_id('ctl00_Topo1_btn_inicio').click()
-sleep(2)
+inicio()
 
-arquitetos()
-sleep(2)
-inicio = navegador.find_element_by_id('ctl00_Topo1_btn_inicio').click()
-sleep(2)
+'''arquitetos()
+inicio()
 
 produtos()
-sleep(2)
-inicio = navegador.find_element_by_id('ctl00_Topo1_btn_inicio').click()
-sleep(2)
+inicio()
 
 fornecedores()
-sleep(2)
-inicio = navegador.find_element_by_id('ctl00_Topo1_btn_inicio').click()
-sleep(2)
+inicio()
+
+orcamentos()
+inicio()
+
+pedidos()
+inicio()
+
+emissaoOc()
+inicio()
+
+recebimetoOc()
+inicio()
+
+representantes()
+inicio()
+
+assistencia()
+inicio()
+
+estoque()
+inicio()
+
+entrega()
+inicio()'''
