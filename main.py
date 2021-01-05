@@ -38,6 +38,15 @@ def clientes():
 def arquitetos():
     navegador.execute_script("document.getElementsByTagName('a')[1].click()")
 
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
+    inputBusca.send_keys('mari')
+
+    enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
+    enter.click()
+
+    pessoa = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_arquitetos_ctl02_lbl_nome')
+    pessoa.click()
+
 def produtos():
     navegador.execute_script("document.getElementsByTagName('a')[2].click()")
 
@@ -80,10 +89,10 @@ sleep(2)
 clientes()
 inicio()
 
-'''arquitetos()
+arquitetos()
 inicio()
 
-produtos()
+'''produtos()
 inicio()
 
 fornecedores()
