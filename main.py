@@ -59,6 +59,16 @@ def produtos():
 def fornecedores():
     botao = navegador.execute_script("document.getElementsByTagName('a')[3].click()")
 
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
+    inputBusca.send_keys('FOUR')
+
+    enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
+    enter.click()
+
+    pessoa = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_fornecedores_ctl02_lbl_nome')
+    pessoa.click()
+
+
 def orcamentos():
     botao = navegador.execute_script("document.getElementsByTagName('a')[4].click()")
 
@@ -92,19 +102,19 @@ def inicio():
 
 sleep(2)
 
-#clientes()
-#inicio()
+'''clientes()
+inicio()
 
-#arquitetos()
-#inicio()
+arquitetos()
+inicio()
 
 produtos()
+inicio()'''
+
+fornecedores()
 inicio()
 
-'''fornecedores()
-inicio()
-
-orcamentos()
+'''orcamentos()
 inicio()
 
 pedidos()
