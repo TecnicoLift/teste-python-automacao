@@ -1,6 +1,6 @@
 from selenium.webdriver import Chrome
 from time import sleep
-#from selenium.webdriver.common.keys import Keys
+from selenium.webdriver.support.ui import Select
 
 url = 'https://sistemalift1.com/lifthomolog/Inicio.aspx'
 
@@ -50,6 +50,12 @@ def arquitetos():
 def produtos():
     navegador.execute_script("document.getElementsByTagName('a')[2].click()")
 
+    barraBusca = Select(navegador.find_element_by_id('ctl00_ContentPlaceHolder1_drp_fornecedor'))
+    barraBusca.select_by_value("39")
+
+    enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_pesquisar')
+    enter.click()
+
 def fornecedores():
     botao = navegador.execute_script("document.getElementsByTagName('a')[3].click()")
 
@@ -86,16 +92,16 @@ def inicio():
 
 sleep(2)
 
-clientes()
+#clientes()
+#inicio()
+
+#arquitetos()
+#inicio()
+
+produtos()
 inicio()
 
-arquitetos()
-inicio()
-
-'''produtos()
-inicio()
-
-fornecedores()
+'''fornecedores()
 inicio()
 
 orcamentos()
