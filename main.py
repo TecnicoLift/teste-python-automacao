@@ -72,6 +72,15 @@ def fornecedores():
 def orcamentos():
     botao = navegador.execute_script("document.getElementsByTagName('a')[4].click()")
 
+    novo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_novo')
+    novo.click()
+
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_nome')
+    inputBusca.send_keys('igorr')
+
+    ok = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
+    ok.click()
+    
 def pedidos():
     botao = navegador.execute_script("document.getElementsByTagName('a')[5].click()")
 
@@ -109,15 +118,15 @@ arquitetos()
 inicio()
 
 produtos()
-inicio()'''
+inicio()
 
 fornecedores()
+inicio()'''
+
+orcamentos()
 inicio()
 
-'''orcamentos()
-inicio()
-
-pedidos()
+'''pedidos()
 inicio()
 
 emissaoOc()
