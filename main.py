@@ -80,12 +80,36 @@ def orcamentos():
 
     ok = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
     ok.click()
+
+    #continuar
     
 def pedidos():
     botao = navegador.execute_script("document.getElementsByTagName('a')[5].click()")
 
+    novo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_novo')
+    novo.click()
+
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_nome')
+    inputBusca.send_keys('igorr')
+
+    ok = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
+    ok.click()
+
+    #continuar
+
 def emissaoOc():
     botao = navegador.execute_script("document.getElementsByTagName('a')[6].click()")
+
+    ocEstoque = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_emitirEstoque')
+    ocEstoque.click()
+
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_nome')
+    inputBusca.send_keys('matek')
+
+    ok = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
+    ok.click()
+
+    #continuar
 
 def recebimetoOc():
     botao = navegador.execute_script("document.getElementsByTagName('a')[7].click()")
@@ -111,7 +135,7 @@ def inicio():
 
 sleep(2)
 
-'''clientes()
+clientes()
 inicio()
 
 arquitetos()
@@ -121,12 +145,12 @@ produtos()
 inicio()
 
 fornecedores()
-inicio()'''
+inicio()
 
 orcamentos()
 inicio()
 
-'''pedidos()
+pedidos()
 inicio()
 
 emissaoOc()
@@ -145,4 +169,4 @@ estoque()
 inicio()
 
 entrega()
-inicio()'''
+inicio()
