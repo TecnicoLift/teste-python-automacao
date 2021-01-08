@@ -24,10 +24,29 @@ enter.click()
 
 
 def clientes():
-    navegador.execute_script("document.getElementsByTagName('a')[0].click()")
+    navegador.execute_script("document.getElementsByTagName('a')[0].click()") #entra em clientes
+    sleep(1)
+
+    navegador.execute_script("document.getElementsByTagName('a')[1].click()") # clica em novo
+
+    
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_txt_nome')
+    inputNome.send_keys('teste automação')
+
+    
+    inputEmail = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_txt_email')
+    inputEmail.send_keys('123@EMAIL.COM')
+
+    
+    inputCelular = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_txt_celular')
+    inputCelular.send_keys('(43) 99999-9999')
+
+    
+    cadastrar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_btn_cadastrar')
+    cadastrar.click()
 
     inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
-    inputBusca.send_keys('igorr')
+    inputBusca.send_keys('teste automação')
 
     enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
     enter.click()
@@ -35,6 +54,8 @@ def clientes():
     pessoa = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_cliente_ctl02_lbl_nome')
     pessoa.click()
 
+    # esta faltado deletar essa pessoa
+    
 def arquitetos():
     navegador.execute_script("document.getElementsByTagName('a')[1].click()")
 
@@ -57,7 +78,7 @@ def produtos():
     enter.click()
 
 def fornecedores():
-    botao = navegador.execute_script("document.getElementsByTagName('a')[3].click()")
+    navegador.execute_script("document.getElementsByTagName('a')[3].click()")
 
     inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
     inputBusca.send_keys('FOUR')
@@ -70,7 +91,7 @@ def fornecedores():
 
 
 def orcamentos():
-    botao = navegador.execute_script("document.getElementsByTagName('a')[4].click()")
+    navegador.execute_script("document.getElementsByTagName('a')[4].click()")
 
     novo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_novo')
     novo.click()
@@ -84,7 +105,7 @@ def orcamentos():
     #continuar
     
 def pedidos():
-    botao = navegador.execute_script("document.getElementsByTagName('a')[5].click()")
+    navegador.execute_script("document.getElementsByTagName('a')[5].click()")
 
     novo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_novo')
     novo.click()
@@ -98,7 +119,7 @@ def pedidos():
     #continuar
 
 def emissaoOc():
-    botao = navegador.execute_script("document.getElementsByTagName('a')[6].click()")
+    navegador.execute_script("document.getElementsByTagName('a')[6].click()")
 
     ocEstoque = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_emitirEstoque')
     ocEstoque.click()
@@ -112,19 +133,19 @@ def emissaoOc():
     #continuar
 
 def recebimetoOc():
-    botao = navegador.execute_script("document.getElementsByTagName('a')[7].click()")
+    navegador.execute_script("document.getElementsByTagName('a')[7].click()")
 
 def representantes():
-    botao = navegador.execute_script("document.getElementsByTagName('a')[8].click()")
+    navegador.execute_script("document.getElementsByTagName('a')[8].click()")
 
 def assistencia():
-    botao = navegador.execute_script("document.getElementsByTagName('a')[9].click()")
+    navegador.execute_script("document.getElementsByTagName('a')[9].click()")
 
 def estoque():
-    botao = navegador.execute_script("document.getElementsByTagName('a')[10].click()")
+    navegador.execute_script("document.getElementsByTagName('a')[10].click()")
 
 def entrega():
-    botao = navegador.execute_script("document.getElementsByTagName('a')[11].click()")
+    navegador.execute_script("document.getElementsByTagName('a')[11].click()")
 
 ####################################
 def inicio():
@@ -138,7 +159,7 @@ sleep(2)
 clientes()
 inicio()
 
-arquitetos()
+'''arquitetos()
 inicio()
 
 produtos()
@@ -169,4 +190,4 @@ estoque()
 inicio()
 
 entrega()
-inicio()
+inicio()'''
