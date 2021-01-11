@@ -27,34 +27,92 @@ def clientes():
     navegador.execute_script("document.getElementsByTagName('a')[0].click()") #entra em clientes
     sleep(1)
 
-    navegador.execute_script("document.getElementsByTagName('a')[1].click()") # clica em novo
+    '''navegador.execute_script("document.getElementsByTagName('a')[1].click()") # clica em novo
 
     
     inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_txt_nome')
     inputNome.send_keys('teste automação')
 
-    
     inputEmail = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_txt_email')
     inputEmail.send_keys('123@EMAIL.COM')
 
-    
     inputCelular = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_txt_celular')
     inputCelular.send_keys('(43) 99999-9999')
 
-    
     cadastrar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_btn_cadastrar')
-    cadastrar.click()
+    cadastrar.click()'''
 
+    # busca cliente
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar').clear()
     inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
     inputBusca.send_keys('teste automação')
+
 
     enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
     enter.click()
 
+
+    # clica na pessoa
     pessoa = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_cliente_ctl02_lbl_nome')
     pessoa.click()
 
-    # esta faltado deletar essa pessoa
+
+    # clica para editar
+    editar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_editar')
+    editar.click()
+
+
+    # coloca novo nome
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_txt_nome').clear()
+
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_txt_nome')
+    inputNome.send_keys('teste automação mudado')
+
+
+    # clica em atualizar
+    atualizar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_btn_cadastrar')
+    atualizar.click()
+
+
+    ###################
+    # busca com novo nome
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar').clear()
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
+    inputBusca.send_keys('teste automação mudado')
+
+
+    enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
+    enter.click()
+
+    # clica na pessoa
+    pessoa = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_cliente_ctl02_lbl_nome')
+    pessoa.click()
+
+    # clica em editar
+    editar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_editar')
+    editar.click()
+
+    # coloca o antigo nome
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_txt_nome').clear()
+
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_txt_nome')
+    inputNome.send_keys('teste automação')
+
+    # clica em atualizar
+    atualizar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_btn_cadastrar')
+    atualizar.click()
+
+    alert = navegador.switch_to_alert()
+    alert.accept()
+
+    sleep(1)
+
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar').clear()
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
+    inputBusca.send_keys('teste automação')
+    
+    enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
+    enter.click()
     
 def arquitetos():
     navegador.execute_script("document.getElementsByTagName('a')[1].click()")
