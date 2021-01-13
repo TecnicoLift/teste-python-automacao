@@ -114,17 +114,79 @@ def clientes():
     enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
     enter.click()
     
+
+
 def arquitetos():
     navegador.execute_script("document.getElementsByTagName('a')[1].click()")
 
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar').clear()
     inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
-    inputBusca.send_keys('mari')
+    inputBusca.send_keys('teste arquiteto')
+
 
     enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
     enter.click()
 
+
+    # clica na pessoa
     pessoa = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_arquitetos_ctl02_lbl_nome')
     pessoa.click()
+
+
+    # clica para editar
+    editar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_editar')  # erro ao clicar aki
+    editar.click()
+
+
+    # coloca novo nome
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormArquiteto1_txt_nome').clear()
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormArquiteto1_txt_nome')
+    inputNome.send_keys('teste arquiteto mudado')
+
+
+    # clica em atualizar
+    atualizar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_btn_cadastrar')
+    atualizar.click()
+
+
+    ###################
+    # busca com novo nome
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar').clear()
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
+    inputBusca.send_keys('teste arquiteto mudado')
+
+
+    enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
+    enter.click()
+
+    # clica na pessoa
+    pessoa = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_arquitetos_ctl02_lbl_nome')
+    pessoa.click()
+
+    # clica em editar
+    editar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_editar')
+    editar.click()
+
+    # coloca o antigo nome
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_txt_nome').clear()
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_txt_nome')
+    inputNome.send_keys('teste arquiteto')
+
+    # clica em atualizar
+    atualizar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_btn_cadastrar')
+    atualizar.click()
+
+    alert = navegador.switch_to_alert()
+    alert.accept()
+
+    sleep(1)
+
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar').clear()
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
+    inputBusca.send_keys('teste arquiteto')
+    
+    enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
+    enter.click()
 
 def produtos():
     navegador.execute_script("document.getElementsByTagName('a')[2].click()")
@@ -214,13 +276,13 @@ def inicio():
 
 sleep(2)
 
-clientes()
+'''clientes()
+inicio()'''
+
+arquitetos()
 inicio()
 
-'''arquitetos()
-inicio()
-
-produtos()
+'''produtos()
 inicio()
 
 fornecedores()
