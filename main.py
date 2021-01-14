@@ -258,6 +258,75 @@ def recebimetoOc():
 def representantes():
     navegador.execute_script("document.getElementsByTagName('a')[8].click()")
 
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar').clear()
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
+    inputBusca.send_keys('teste representante')
+
+
+    enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
+    enter.click()
+
+
+    # clica na pessoa
+    pessoa = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_representantes_ctl02_lbl_nome')
+    pessoa.click()
+
+
+    # clica para editar
+    editar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_editar')
+    editar.click()
+
+
+    # coloca novo nome
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormRepresentante1_txt_nome').clear()
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormRepresentante1_txt_nome')
+    inputNome.send_keys('teste representante mudado')
+
+
+    # clica em atualizar
+    atualizar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormRepresentante1_btn_cadastrar')
+    atualizar.click()
+
+
+    ###################
+    # busca com novo nome
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar').clear()
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
+    inputBusca.send_keys('teste representante mudado')
+
+
+    enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
+    enter.click()
+
+    # clica na pessoa
+    pessoa = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_representantes_ctl02_lbl_nome')
+    pessoa.click()
+
+    # clica em editar
+    editar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_editar')
+    editar.click()
+
+    # coloca o antigo nome
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormRepresentante1_txt_nome').clear()
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormRepresentante1_txt_nome')
+    inputNome.send_keys('teste representante')
+
+    # clica em atualizar
+    atualizar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormRepresentante1_btn_cadastrar')
+    atualizar.click()
+
+    alert = navegador.switch_to_alert()
+    alert.accept()
+
+    sleep(1)
+
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar').clear()
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
+    inputBusca.send_keys('teste representante')
+    
+    enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
+    enter.click()
+
 def assistencia():
     navegador.execute_script("document.getElementsByTagName('a')[9].click()")
 
@@ -277,12 +346,12 @@ def inicio():
 sleep(2)
 
 '''clientes()
-inicio()'''
+inicio()
 
 arquitetos()
 inicio()
 
-'''produtos()
+produtos()
 inicio()
 
 fornecedores()
@@ -298,12 +367,12 @@ emissaoOc()
 inicio()
 
 recebimetoOc()
-inicio()
+inicio()'''
 
 representantes()
 inicio()
 
-assistencia()
+'''assistencia()
 inicio()
 
 estoque()
