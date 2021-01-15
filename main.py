@@ -128,15 +128,14 @@ def arquitetos():
     enter.click()
 
 
-    # clica na pessoa
-    pessoa = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_arquitetos_ctl02_lbl_nome')
-    pessoa.click()
+    for i in range (0,2):
+        # clica na pessoa
+        pessoa = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_arquitetos_ctl02_lbl_nome')
+        pessoa.click()
 
-
-    # clica para editar
-    editar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_editar')  # erro ao clicar aki
-    editar.click()
-
+        # clica para editar
+        editar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_editar')  # erro ao clicar aki
+        editar.click()
 
     # coloca novo nome
     inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormArquiteto1_txt_nome').clear()
@@ -145,7 +144,7 @@ def arquitetos():
 
 
     # clica em atualizar
-    atualizar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_btn_cadastrar')
+    atualizar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormArquiteto1_btn_cadastrar')
     atualizar.click()
 
 
@@ -168,12 +167,12 @@ def arquitetos():
     editar.click()
 
     # coloca o antigo nome
-    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_txt_nome').clear()
-    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_txt_nome')
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormArquiteto1_txt_nome').clear()
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormArquiteto1_txt_nome')
     inputNome.send_keys('teste arquiteto')
 
     # clica em atualizar
-    atualizar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_btn_cadastrar')
+    atualizar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormArquiteto1_btn_cadastrar')
     atualizar.click()
 
     alert = navegador.switch_to_alert()
@@ -336,6 +335,13 @@ def estoque():
 def entrega():
     navegador.execute_script("document.getElementsByTagName('a')[11].click()")
 
+def funcionarios():
+    navegador.execute_script("document.getElementsByTagName('a')[12].click()")
+
+def usuarios():
+    navegador.execute_script("document.getElementsByTagName('a')[13].click()")
+
+
 ####################################
 def inicio():
     sleep(2)
@@ -346,12 +352,12 @@ def inicio():
 sleep(2)
 
 '''clientes()
-inicio()
+inicio()'''
 
 arquitetos()
 inicio()
 
-produtos()
+'''produtos()
 inicio()
 
 fornecedores()
@@ -367,16 +373,24 @@ emissaoOc()
 inicio()
 
 recebimetoOc()
-inicio()'''
+inicio()
 
 representantes()
 inicio()
 
-'''assistencia()
+assistencia()
 inicio()
 
 estoque()
 inicio()
 
 entrega()
-inicio()'''
+inicio()
+
+funcionarios()
+inicio()
+
+usuarios()
+inicio()
+
+'''
