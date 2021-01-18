@@ -338,6 +338,77 @@ def entrega():
 def funcionarios():
     navegador.execute_script("document.getElementsByTagName('a')[12].click()")
 
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar').clear()
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
+    inputBusca.send_keys('teste funcionario')
+
+
+    enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
+    enter.click()
+
+
+    # clica na pessoa
+    pessoa = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_funcionario_ctl02_lbl_nome')
+    pessoa.click()
+
+
+    # clica para editar
+    editar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_editar')
+    editar.click()
+
+
+    # coloca novo nome
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormFuncionario1_txt_nome').clear()
+
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormFuncionario1_txt_nome')
+    inputNome.send_keys('teste funcionario mudado')
+
+
+    # clica em atualizar
+    atualizar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormFuncionario1_btn_cadastrar')
+    atualizar.click()
+
+
+    ###################
+    # busca com novo nome
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar').clear()
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
+    inputBusca.send_keys('teste funcionario mudado')
+
+
+    enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
+    enter.click()
+
+    # clica na pessoa
+    pessoa = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_funcionario_ctl02_lbl_nome')
+    pessoa.click()
+
+    # clica em editar
+    editar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_editar')
+    editar.click()
+
+    # coloca o antigo nome
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormFuncionario1_txt_nome').clear()
+
+    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormFuncionario1_txt_nome')
+    inputNome.send_keys('teste funcionario')
+
+    # clica em atualizar
+    atualizar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormFuncionario1_btn_cadastrar')
+    atualizar.click()
+
+    alert = navegador.switch_to_alert()
+    alert.accept()
+
+    sleep(1)
+
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar').clear()
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
+    inputBusca.send_keys('teste funcionario')
+    
+    enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
+    enter.click()
+
 def usuarios():
     navegador.execute_script("document.getElementsByTagName('a')[13].click()")
 
@@ -345,19 +416,19 @@ def usuarios():
 ####################################
 def inicio():
     sleep(2)
-    inicio = navegador.find_element_by_id('ctl00_Topo1_btn_inicio').click()
+    navegador.find_element_by_id('ctl00_Topo1_btn_inicio').click()
     sleep(2)
 ####################################
 
 sleep(2)
 
-'''clientes()
-inicio()'''
-
-arquitetos()
+clientes()  #ok
 inicio()
 
-'''produtos()
+arquitetos()  #ok 
+inicio()
+
+produtos()
 inicio()
 
 fornecedores()
@@ -375,7 +446,7 @@ inicio()
 recebimetoOc()
 inicio()
 
-representantes()
+representantes() # ok
 inicio()
 
 assistencia()
@@ -387,10 +458,8 @@ inicio()
 entrega()
 inicio()
 
-funcionarios()
+funcionarios()  # ok
 inicio()
 
 usuarios()
 inicio()
-
-'''
