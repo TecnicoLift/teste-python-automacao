@@ -196,6 +196,27 @@ def produtos():
     enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_pesquisar')
     enter.click()
 
+    navegador.execute_script("document.getElementsByTagName('a')[1].click()")
+
+    fornecedor = Select(navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormProdutoADM1_drp_fornecedor'))
+    fornecedor.select_by_value("39") # matek
+
+    linha = Select(navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormProdutoADM1_drp_linha'))
+    linha.select_by_value("28")  # mesa de jantar
+
+    descricao = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormProdutoADM1_txt_nome')
+    descricao.send_keys('teste automacao')
+
+    medida = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormProdutoADM1_txt_medida')
+    medida.send_keys('7,00X2,00X0,50')
+
+    precoCusto = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormProdutoADM1_txt_custo')
+    precoCusto.send_keys('5,00')
+
+    
+    configurarProduto = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormProdutoADM1_btn_cadastrar')
+    configurarProduto.click()
+
 def fornecedores():
     navegador.execute_script("document.getElementsByTagName('a')[3].click()")
 
@@ -422,16 +443,16 @@ def inicio():
 
 sleep(2)
 
-clientes()  #ok
+'''clientes()  #ok
 inicio()
 
 arquitetos()  #ok 
-inicio()
+inicio()'''
 
 produtos()
 inicio()
 
-fornecedores()
+'''fornecedores()
 inicio()
 
 orcamentos()
@@ -462,4 +483,4 @@ funcionarios()  # ok
 inicio()
 
 usuarios()
-inicio()
+inicio()'''
