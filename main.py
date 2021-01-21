@@ -217,6 +217,57 @@ def produtos():
     configurarProduto = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormProdutoADM1_btn_cadastrar')
     configurarProduto.click()
 
+    configuracao1 = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_configuracao1')
+    configuracao2 = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_configuracao2')
+    configuracao3 = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_configuracao3')
+    configuracao4 = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_configuracao4')
+
+    configuracao1.send_keys('ACABAMENTO')
+    configuracao2.send_keys('TECIDO')
+    configuracao3.send_keys('TECIDOTECIDO')
+    configuracao4.send_keys('BASE')
+
+    ok = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
+    ok.click()
+
+    acabamento = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_acabamento_txt_acabamento')
+    acabamento.send_keys('cola branca')
+    acrescimo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_acabamento_txt_acrescimoValorAcabamento')
+    acrescimo.send_keys('1,00')
+    aplicar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_acabamento_btn_acabamento')
+    aplicar.click()
+
+    tecido = navegador.find_element_by_id('__tab_ctl00_ContentPlaceHolder1_tab_containerTudo_tab_tecido')
+    tecido.click()
+    tecido = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_tecido_txt_tecido')
+    tecido.send_keys('camurça')
+    acrescimo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_tecido_txt_AcrescimoValorTecido')
+    acrescimo.send_keys('2,00')
+    aplicar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_tecido_btn_Tecido')
+    aplicar.click()
+
+    cor = navegador.find_element_by_id('__tab_ctl00_ContentPlaceHolder1_tab_containerTudo_tab_cor')
+    cor.click()
+    cor = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_cor_txt_cor')
+    cor.send_keys('cor')
+    acrescimo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_cor_txt_cor')
+    acrescimo.send_keys('3,00')
+    aplicar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_cor_btn_cor')
+    aplicar.click()
+
+    base = navegador.find_element_by_id('__tab_ctl00_ContentPlaceHolder1_tab_containerTudo_tab_configuracao4')
+    base.click()
+    base = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_configuracao4_txt_configuracao4_')
+    base.send_keys('MADEIRA SOLIDA')
+    acrescimo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_configuracao4_txt_AcrescimoPorcentagemConfiguracao4')
+    acrescimo.send_keys('4,00')
+    aplicar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_configuracao4_btn_configuracao4')
+    aplicar.click()
+
+    '''inicio()
+
+    navegador.execute_script("document.getElementsByTagName('a')[2].click()")'''
+
 def fornecedores():
     navegador.execute_script("document.getElementsByTagName('a')[3].click()")
 
