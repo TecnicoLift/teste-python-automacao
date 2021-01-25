@@ -210,6 +210,7 @@ def produtos():
     medida = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormProdutoADM1_txt_medida')
     medida.send_keys('7,00X2,00X0,50')
 
+    precoCusto = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormProdutoADM1_txt_custo').clear()
     precoCusto = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormProdutoADM1_txt_custo')
     precoCusto.send_keys('5,00')
 
@@ -224,7 +225,7 @@ def produtos():
 
     configuracao1.send_keys('ACABAMENTO')
     configuracao2.send_keys('TECIDO')
-    configuracao3.send_keys('TECIDOTECIDO')
+    configuracao3.send_keys('COR')
     configuracao4.send_keys('BASE')
 
     ok = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
@@ -232,6 +233,7 @@ def produtos():
 
     acabamento = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_acabamento_txt_acabamento')
     acabamento.send_keys('cola branca')
+    acrescimo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_acabamento_txt_acrescimoValorAcabamento').clear()
     acrescimo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_acabamento_txt_acrescimoValorAcabamento')
     acrescimo.send_keys('1,00')
     aplicar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_acabamento_btn_acabamento')
@@ -241,6 +243,7 @@ def produtos():
     tecido.click()
     tecido = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_tecido_txt_tecido')
     tecido.send_keys('camurça')
+    acrescimo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_tecido_txt_AcrescimoValorTecido').clear()
     acrescimo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_tecido_txt_AcrescimoValorTecido')
     acrescimo.send_keys('2,00')
     aplicar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_tecido_btn_Tecido')
@@ -250,7 +253,8 @@ def produtos():
     cor.click()
     cor = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_cor_txt_cor')
     cor.send_keys('cor')
-    acrescimo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_cor_txt_cor')
+    acrescimo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_cor_txt_acrescimoPorcentagemCor').clear()
+    acrescimo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_cor_txt_acrescimoPorcentagemCor')
     acrescimo.send_keys('3,00')
     aplicar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_cor_btn_cor')
     aplicar.click()
@@ -259,14 +263,32 @@ def produtos():
     base.click()
     base = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_configuracao4_txt_configuracao4_')
     base.send_keys('MADEIRA SOLIDA')
+    acrescimo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_configuracao4_txt_AcrescimoPorcentagemConfiguracao4').clear()
     acrescimo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_configuracao4_txt_AcrescimoPorcentagemConfiguracao4')
     acrescimo.send_keys('4,00')
     aplicar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_tab_containerTudo_tab_configuracao4_btn_configuracao4')
     aplicar.click()
 
-    '''inicio()
+    # voltando para o inicio
+    inicio()
+    navegador.execute_script("document.getElementsByTagName('a')[2].click()")
+    barraBusca = Select(navegador.find_element_by_id('ctl00_ContentPlaceHolder1_drp_fornecedor'))
+    barraBusca.select_by_value("39")
+    enter = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_pesquisar')
+    enter.click()
 
-    navegador.execute_script("document.getElementsByTagName('a')[2].click()")'''
+    # excluir produto criado
+    navegador.execute_script("document.getElementsByTagName('a')[9].click()")
+    excluir = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_tirar')
+    excluir.click()
+
+    alert = navegador.switch_to_alert()
+    alert.accept()
+    #sleep(1)
+    alert = navegador.switch_to_alert()
+    alert.accept()
+
+
 
 def fornecedores():
     navegador.execute_script("document.getElementsByTagName('a')[3].click()")
@@ -404,6 +426,48 @@ def assistencia():
 def estoque():
     navegador.execute_script("document.getElementsByTagName('a')[10].click()")
 
+    pesquisaCodigo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_drp_filtro')
+    pesquisaCodigo.click()
+    pesquisaCodigo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_drp_filtro')
+
+    pesquisaCodigo = Select(navegador.find_element_by_id('ctl00_ContentPlaceHolder1_drp_filtro'))
+    pesquisaCodigo.select_by_value("1")
+    #pesquisaCodigo.click()
+
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar').clear()
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
+    inputBusca.send_keys('38129117')
+
+    pesquisa = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_pesquisar')
+    pesquisa.click()
+
+    ajusteEstoque = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ajusteEstoque')
+    ajusteEstoque.click()
+
+    codigo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscarCodigo')
+    codigo.send_keys('38129117')
+
+    valor = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txtQtde')
+    valor = valor.get_attribute('value')
+
+    estoque = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txtQtde')
+    estoque.click()
+
+    if(valor == '1'):
+        quantidade = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txtQtde').clear()
+        quantidade = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txtQtde')
+        quantidade.send_keys('2')
+    else:
+        quantidade = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txtQtde').clear()
+        quantidade = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txtQtde')
+        quantidade.send_keys('1')
+
+    ok = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_pesquisarPorCodigo')
+    ok.click()
+    
+
+
+
 def entrega():
     navegador.execute_script("document.getElementsByTagName('a')[11].click()")
 
@@ -498,12 +562,12 @@ sleep(2)
 inicio()
 
 arquitetos()  #ok 
-inicio()'''
+inicio()
 
 produtos()
 inicio()
 
-'''fornecedores()
+fornecedores()
 inicio()
 
 orcamentos()
@@ -522,12 +586,12 @@ representantes() # ok
 inicio()
 
 assistencia()
-inicio()
+inicio()'''
 
 estoque()
 inicio()
 
-entrega()
+'''entrega()
 inicio()
 
 funcionarios()  # ok
