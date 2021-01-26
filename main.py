@@ -27,21 +27,6 @@ def clientes():
     navegador.execute_script("document.getElementsByTagName('a')[0].click()") #entra em clientes
     sleep(1)
 
-    '''navegador.execute_script("document.getElementsByTagName('a')[1].click()") # clica em novo
-
-    
-    inputNome = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_txt_nome')
-    inputNome.send_keys('teste automação')
-
-    inputEmail = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_txt_email')
-    inputEmail.send_keys('123@EMAIL.COM')
-
-    inputCelular = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_txt_celular')
-    inputCelular.send_keys('(43) 99999-9999')
-
-    cadastrar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_FormCliente1_btn_cadastrar')
-    cadastrar.click()'''
-
     # busca cliente
     inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar').clear()
     inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
@@ -306,6 +291,9 @@ def fornecedores():
 def orcamentos():
     navegador.execute_script("document.getElementsByTagName('a')[4].click()")
 
+
+
+
     novo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_novo')
     novo.click()
 
@@ -314,6 +302,9 @@ def orcamentos():
 
     ok = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
     ok.click()
+
+    adicionar = navegador.find_element_by_id('FormOrcamento1_btn_adicionar')
+    adicionar.click()
 
     #continuar
     
@@ -425,47 +416,72 @@ def assistencia():
 
 def estoque():
     navegador.execute_script("document.getElementsByTagName('a')[10].click()")
-
-    pesquisaCodigo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_drp_filtro')
-    pesquisaCodigo.click()
-    pesquisaCodigo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_drp_filtro')
-
-    pesquisaCodigo = Select(navegador.find_element_by_id('ctl00_ContentPlaceHolder1_drp_filtro'))
-    pesquisaCodigo.select_by_value("1")
-    #pesquisaCodigo.click()
-
-    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar').clear()
-    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscar')
-    inputBusca.send_keys('38129117')
-
-    pesquisa = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_pesquisar')
-    pesquisa.click()
+    #TECIDO CAMURÇA
 
     ajusteEstoque = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ajusteEstoque')
     ajusteEstoque.click()
 
-    codigo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_buscarCodigo')
-    codigo.send_keys('38129117')
+    #pesquisaCodigo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_drp_tipoPesquisa')
+    #pesquisaCodigo.click()
+    pesquisaCodigo = Select(navegador.find_element_by_id('ctl00_ContentPlaceHolder1_drp_tipoPesquisa'))
+    pesquisaCodigo.select_by_value("1") #descrição
+
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_pesquisa').clear()
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_pesquisa')
+    inputBusca.send_keys('POLTRONA RECLINAVEL')
+
+    ok = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_pesquisarPorDesc')
+    ok.click()
 
     valor = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txtQtde')
     valor = valor.get_attribute('value')
 
-    estoque = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txtQtde')
-    estoque.click()
+    #estoque = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txtQtde')
+    #estoque.click()
 
     if(valor == '1'):
-        quantidade = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txtQtde').clear()
-        quantidade = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txtQtde')
+        quantidade = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_itens_ctl02_txt_quantidade').clear()
+        quantidade = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_itens_ctl02_txt_quantidade')
         quantidade.send_keys('2')
     else:
-        quantidade = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txtQtde').clear()
-        quantidade = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txtQtde')
-        quantidade.send_keys('1')
+        quantidade = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_itens_ctl02_txt_quantidade').clear()
+        quantidade = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_itens_ctl02_txt_quantidade')
+        quantidade.send_keys('1')    
 
-    ok = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_pesquisarPorCodigo')
+    atualizar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_itens_ctl02_LinkButton1')
+    atualizar.click()
+
+    alert = navegador.switch_to_alert()
+    alert.accept()
+
+    ################################
+    pesquisaCodigo = Select(navegador.find_element_by_id('ctl00_ContentPlaceHolder1_drp_tipoPesquisa'))
+    pesquisaCodigo.select_by_value("0") #codigo
+
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_pesquisa').clear()
+    inputBusca = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txt_pesquisa')
+    inputBusca.send_keys('38129117')
+
+    ok = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_pesquisarPorDesc')
     ok.click()
-    
 
+    valor = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txtQtde')
+    valor = valor.get_attribute('value')
+
+    if(valor == '1'):
+        quantidade = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_itens_ctl02_txt_quantidade').clear()
+        quantidade = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_itens_ctl02_txt_quantidade')
+        quantidade.send_keys('2')
+    else:
+        quantidade = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_itens_ctl02_txt_quantidade').clear()
+        quantidade = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_itens_ctl02_txt_quantidade')
+        quantidade.send_keys('1')    
+
+    atualizar = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_itens_ctl02_LinkButton1')
+    atualizar.click()
+
+    alert = navegador.switch_to_alert()
+    alert.accept()
 
 
 def entrega():
