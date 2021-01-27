@@ -291,9 +291,6 @@ def fornecedores():
 def orcamentos():
     navegador.execute_script("document.getElementsByTagName('a')[4].click()")
 
-
-
-
     novo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_novo')
     novo.click()
 
@@ -303,8 +300,11 @@ def orcamentos():
     ok = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ok')
     ok.click()
 
-    adicionar = navegador.find_element_by_id('FormOrcamento1_btn_adicionar')
-    adicionar.click()
+    navegador.execute_script("document.getElementsByTagName('a')[2].click()") #clica na pessoa
+
+    adcionaProduto = navegador.find_element_by_id('FormOrcamento1_btn_adicionar')
+    adcionaProduto.click()
+
 
     #continuar
     
@@ -421,8 +421,6 @@ def estoque():
     ajusteEstoque = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_btn_ajusteEstoque')
     ajusteEstoque.click()
 
-    #pesquisaCodigo = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_drp_tipoPesquisa')
-    #pesquisaCodigo.click()
     pesquisaCodigo = Select(navegador.find_element_by_id('ctl00_ContentPlaceHolder1_drp_tipoPesquisa'))
     pesquisaCodigo.select_by_value("1") #descrição
 
@@ -435,9 +433,6 @@ def estoque():
 
     valor = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txtQtde')
     valor = valor.get_attribute('value')
-
-    #estoque = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_txtQtde')
-    #estoque.click()
 
     if(valor == '1'):
         quantidade = navegador.find_element_by_id('ctl00_ContentPlaceHolder1_grid_itens_ctl02_txt_quantidade').clear()
@@ -564,6 +559,20 @@ def funcionarios():
 def usuarios():
     navegador.execute_script("document.getElementsByTagName('a')[13].click()")
 
+def financeiro():
+    navegador.execute_script("document.getElementsByTagName('a')[14].click()")
+
+    navegador.execute_script("document.getElementsByTagName('a')[9].click()") # integração
+
+def marketing():
+    navegador.execute_script("document.getElementsByTagName('a')[15].click()")
+
+def relatorio():
+    navegador.execute_script("document.getElementsByTagName('a')[16].click()")
+
+def configuracao():
+    navegador.execute_script("document.getElementsByTagName('a')[17].click()")
+
 
 ####################################
 def inicio():
@@ -574,7 +583,7 @@ def inicio():
 
 sleep(2)
 
-'''clientes()  #ok
+clientes()  #ok
 inicio()
 
 arquitetos()  #ok 
@@ -602,16 +611,28 @@ representantes() # ok
 inicio()
 
 assistencia()
-inicio()'''
-
-estoque()
 inicio()
 
-'''entrega()
+estoque()  # ok
+inicio()
+
+entrega()
 inicio()
 
 funcionarios()  # ok
 inicio()
 
 usuarios()
-inicio()'''
+inicio()
+
+financeiro()
+inicio()
+
+marketing()
+inicio()
+
+relatorio()
+inicio()
+
+configuracao()
+inicio()
