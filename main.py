@@ -562,10 +562,63 @@ def usuarios():
 def financeiro():
     navegador.execute_script("document.getElementsByTagName('a')[14].click()")
 
-    navegador.execute_script("document.getElementsByTagName('a')[9].click()") # integração
+    navegador.execute_script("document.getElementsByTagName('a')[1].click()")# contas a pagar
+    financeiro = navegador.find_element_by_id('ctl00_img_titulo')
+    financeiro.click()
+
+    navegador.execute_script("document.getElementsByTagName('a')[2].click()")# contas a receber    
+    financeiro = navegador.find_element_by_id('ctl00_img_titulo')
+    financeiro.click()
+
+    navegador.execute_script("document.getElementsByTagName('a')[3].click()")# fluxo de caixa    
+    financeiro = navegador.find_element_by_id('ctl00_img_titulo')
+    financeiro.click()
+
+    navegador.execute_script("document.getElementsByTagName('a')[4].click()")# meio de pagamento    
+    financeiro = navegador.find_element_by_id('ctl00_img_titulo')
+    financeiro.click()
+
+    navegador.execute_script("document.getElementsByTagName('a')[5].click()")# bancos    
+    financeiro = navegador.find_element_by_id('ctl00_img_titulo')
+    financeiro.click()
+    
+    navegador.execute_script("document.getElementsByTagName('a')[6].click()")# contas    
+    financeiro = navegador.find_element_by_id('ctl00_img_titulo')
+    financeiro.click()
+
+    navegador.execute_script("document.getElementsByTagName('a')[7].click()")# grupos financeiros    
+    financeiro = navegador.find_element_by_id('ctl00_img_titulo')
+    financeiro.click()
+
+    navegador.execute_script("document.getElementsByTagName('a')[8].click()")# dre    
+    financeiro = navegador.find_element_by_id('ctl00_img_titulo')
+    financeiro.click()
+
+    navegador.execute_script("document.getElementsByTagName('a')[9].click()")# integração    
+    financeiro = navegador.find_element_by_id('ctl00_img_titulo')
+    financeiro.click()
 
 def marketing():
     navegador.execute_script("document.getElementsByTagName('a')[15].click()")
+
+    navegador.execute_script("document.getElementsByTagName('a')[1].click()")# relatorio
+    # dentro de relatorio
+    navegador.execute_script("document.getElementsByTagName('a')[1].click()")# Bairro
+    navegador.execute_script("document.getElementsByTagName('a')[2].click()")# vendas
+    navegador.execute_script("document.getElementsByTagName('a')[3].click()")# markup
+    navegador.execute_script("document.getElementsByTagName('a')[4].click()")# lucro
+    navegador.execute_script("document.getElementsByTagName('a')[5].click()")# ticket medio
+
+    marketing = navegador.find_element_by_id('ctl00_img_titulo')# volta para o relatorio
+    marketing.click()
+
+    navegador.execute_script("document.getElementsByTagName('a')[2].click()")# prospects
+    marketing = navegador.find_element_by_id('ctl00_img_titulo')
+    marketing.click()
+
+    navegador.execute_script("document.getElementsByTagName('a')[3].click()")# atendimento
+    marketing = navegador.find_element_by_id('ctl00_img_titulo')
+    marketing.click()
 
 def relatorio():
     navegador.execute_script("document.getElementsByTagName('a')[16].click()")
@@ -583,7 +636,7 @@ def inicio():
 
 sleep(2)
 
-clientes()  #ok
+'''clientes()  #ok
 inicio()
 
 arquitetos()  #ok 
@@ -617,7 +670,7 @@ estoque()  # ok
 inicio()
 
 entrega()
-inicio()
+inicio()'''
 
 funcionarios()  # ok
 inicio()
