@@ -570,9 +570,17 @@ def financeiro():
     financeiro = navegador.find_element_by_id('ctl00_img_titulo')
     financeiro.click()
 
-    navegador.execute_script("document.getElementsByTagName('a')[3].click()")# fluxo de caixa    
+    navegador.execute_script("document.getElementsByTagName('a')[3].click()")# fluxo de caixa 
+    # dentro de fluxo de caixa   
+    navegador.execute_script("document.getElementsByTagName('a')[1].click()")# fluxo de caixa
     financeiro = navegador.find_element_by_id('ctl00_img_titulo')
     financeiro.click()
+
+    navegador.execute_script("document.getElementsByTagName('a')[3].click()")# fluxo de caixa 
+    navegador.execute_script("document.getElementsByTagName('a')[2].click()")# fluxo acumulado
+    financeiro = navegador.find_element_by_id('ctl00_img_titulo')
+    financeiro.click()
+    # sai de fluxo de caixa
 
     navegador.execute_script("document.getElementsByTagName('a')[4].click()")# meio de pagamento    
     financeiro = navegador.find_element_by_id('ctl00_img_titulo')
@@ -591,12 +599,18 @@ def financeiro():
     financeiro.click()
 
     navegador.execute_script("document.getElementsByTagName('a')[8].click()")# dre    
+    # dentro de DRE
+    navegador.execute_script("document.getElementsByTagName('a')[1].click()")# dre
     financeiro = navegador.find_element_by_id('ctl00_img_titulo')
     financeiro.click()
 
-    navegador.execute_script("document.getElementsByTagName('a')[9].click()")# integração    
+    navegador.execute_script("document.getElementsByTagName('a')[8].click()")# dre
+    navegador.execute_script("document.getElementsByTagName('a')[2].click()")# dre editavel
     financeiro = navegador.find_element_by_id('ctl00_img_titulo')
     financeiro.click()
+    # sai de dentro de dre
+
+    navegador.execute_script("document.getElementsByTagName('a')[9].click()")# integração    
 
 def marketing():
     navegador.execute_script("document.getElementsByTagName('a')[15].click()")
@@ -604,13 +618,29 @@ def marketing():
     navegador.execute_script("document.getElementsByTagName('a')[1].click()")# relatorio
     # dentro de relatorio
     navegador.execute_script("document.getElementsByTagName('a')[1].click()")# Bairro
-    navegador.execute_script("document.getElementsByTagName('a')[2].click()")# vendas
-    navegador.execute_script("document.getElementsByTagName('a')[3].click()")# markup
-    navegador.execute_script("document.getElementsByTagName('a')[4].click()")# lucro
-    navegador.execute_script("document.getElementsByTagName('a')[5].click()")# ticket medio
-
     marketing = navegador.find_element_by_id('ctl00_img_titulo')# volta para o relatorio
     marketing.click()
+    navegador.execute_script("document.getElementsByTagName('a')[1].click()")# relatorio
+
+    navegador.execute_script("document.getElementsByTagName('a')[2].click()")# vendas
+    marketing = navegador.find_element_by_id('ctl00_img_titulo')# volta para o relatorio
+    marketing.click()
+    navegador.execute_script("document.getElementsByTagName('a')[1].click()")# relatorio
+
+    navegador.execute_script("document.getElementsByTagName('a')[3].click()")# markup
+    marketing = navegador.find_element_by_id('ctl00_img_titulo')# volta para o relatorio
+    marketing.click()
+    navegador.execute_script("document.getElementsByTagName('a')[1].click()")# relatorio
+    
+    navegador.execute_script("document.getElementsByTagName('a')[4].click()")# lucro
+    marketing = navegador.find_element_by_id('ctl00_img_titulo')# volta para o relatorio
+    marketing.click()
+    navegador.execute_script("document.getElementsByTagName('a')[1].click()")# relatorio
+    
+    navegador.execute_script("document.getElementsByTagName('a')[5].click()")# ticket medio
+    marketing = navegador.find_element_by_id('ctl00_img_titulo')# volta para o relatorio
+    marketing.click()
+    # sai de relatorio
 
     navegador.execute_script("document.getElementsByTagName('a')[2].click()")# prospects
     marketing = navegador.find_element_by_id('ctl00_img_titulo')
@@ -670,13 +700,13 @@ estoque()  # ok
 inicio()
 
 entrega()
-inicio()'''
+inicio()
 
 funcionarios()  # ok
 inicio()
 
 usuarios()
-inicio()
+inicio()'''
 
 financeiro()
 inicio()
